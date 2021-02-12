@@ -5,9 +5,10 @@ import moment from 'moment';
 
 interface Props {
     movie: Movie
+    type?: string
 }
 
-export const ResultCard: React.FC<Props> = ({ movie }) => {
+export const ResultCard: React.FC<Props> = ({ movie, type="default" }) => {
 
     const MAX_WORD = 38;
     return (
@@ -26,7 +27,7 @@ export const ResultCard: React.FC<Props> = ({ movie }) => {
                     }
                 </div>
                 <div className="relative">
-                    <MovieControls />
+                    <MovieControls movie={movie} type={type} />
                 </div>
                 <div className="info flex flex-col text-base py-4 px-3"  >
                     <div className="header leading-tight font-bold">

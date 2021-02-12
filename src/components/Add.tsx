@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import * as Models from '../models';
-import { get } from '../utils/Http';
 import { ResultCard } from './ResultCard';
 import '../css/site.css'
 
@@ -14,10 +13,7 @@ export const Add: React.FC = () => {
     const [query, setQuery] = useState<string>("");
     const [results, setResults] = useState<Array<Models.SearchedResults>>([]);
 
-
-
     useEffect(() => {
-        console.dir('caraaaa')
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&include_adult=true&query=the%20lo`)
             .then(res => res.json())
             .then(data => {
@@ -62,7 +58,7 @@ export const Add: React.FC = () => {
             </div>
             {
                 results.length > 0 && (
-                    <div className="flex flex-wrap w-full mx-1 justify-between">
+                    <div className="flex flex-wrap w-full mx-1 justify-start">
                         {
                             results.map((movie) => (
                                 <ResultCard key={movie.id} movie={movie} />

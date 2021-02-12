@@ -1,5 +1,3 @@
-import { AriaAttributes } from "react"
-
 export type SearchedMovieResponse = {
     results : SearchedResults[];
 }
@@ -16,4 +14,10 @@ export type Movie = {
     poster_path: string;
     title: string;
     release_date: string;
+}
+
+export interface GlobalState {
+    watchlist: Movie[];
+    watched: Movie[];
+    addMovieToWatchlist?: (movie: Movie | undefined) => void ;
 }
